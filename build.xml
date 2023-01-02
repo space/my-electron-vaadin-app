@@ -1,0 +1,26 @@
+<project name="MyProject" basedir=".">
+
+    <description>
+        Project build file...
+    </description>
+    
+    <target name="clean" description="Clean all not essential elements">
+    
+        <echo message="Clean generated directories" />
+        <delete dir="./node_modules" />
+        <delete dir="./target" />
+        <delete dir="./frontend/generated" />
+
+        <echo message="Clean generated files" />
+        <delete file="./package-lock.json" />
+        <delete file="./pnpmfile.js" />
+        <delete file="./.pnpmfile.cjs" />
+        <delete file="./pnpm-lock.yaml" />
+        <delete file="./tsconfig.json" />
+        <delete file="./types.d.ts" />
+        <delete file="./vite.config.ts" />
+        <delete file="./vite.generated.ts" />
+
+    </target>
+
+</project>
