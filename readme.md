@@ -9,14 +9,14 @@ With some upgrades:
 
 - Java 19 : as compilation language but also as embedded JRE to be shipped with the application
 - Vaadin: 23.3.2 (the latest available)
-- Small Ant build script on top of maven to add a bit of old good procedural logic  
-- A more complete Vaadin app created via https://start.vaadin.com 
+- Small Ant build script on top of maven to add a bit of old good procedural logic to the build process
+- A bit more rich Vaadin app created via https://start.vaadin.com 
 
 To build:
 
-- Install Java JDK 19
-- Install Ant (1.10.12)
-- Install Maven (mine is 3.6.3 and never tried a newer version)
+- Install Java JDK 19 and define your JAVA_HOME
+- Install Ant (1.10.12) and define your ANT_HOME
+- Install Maven (mine is 3.6.3 and never tried a newer version) and define your MAVEN_HOME
 - For Vaadin normal build install also node (18.12.1) and npm (8.19.2)
 
 then run:
