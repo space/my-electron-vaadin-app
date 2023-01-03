@@ -1,7 +1,7 @@
 
 ## Proof of concept of an Electron packaged Vaadin web application
 
-This kind of packaged application is useful to have in a same code base the possibility to run locally (as an Electron application) and to install on a remote server as a normal web application. 
+This kind of packaged application is useful to have in a same code base the possibility to run locally (as an Electron application) and to install on a remote server as a normal web application.
 
 This project is inspired to the very good: https://github.com/appreciated/maven-springboot-electron
 
@@ -12,9 +12,25 @@ With some upgrades:
 - Small Ant build script on top of maven to add a bit of old good procedural logic  
 - A more complete Vaadin app created via https://start.vaadin.com 
 
-To start build:
+To build:
 
 - Install Java JDK 19
 - Install Ant (1.10.12)
-- Install Maven (mine is 3.6.3 and never triasadsed )
+- Install Maven (mine is 3.6.3 and never tried a newer version)
+- For Vaadin normal build install also node (18.12.1) and npm (8.19.2)
 
+then run:
+
+    ant
+
+and the list of available task will be printed:
+
+    clean             Clean all not essential elements using maven
+    clean.all         Clean all not essential elements (including all boring JS related Vaadin config)
+    package.electron  Create Electron app ready for distribution  
+
+so to create the final Electron bundle (for Win, Mac and Linux):
+
+    ant package.electon
+
+than take a coffee (first full build take 10 min on my machine...)
