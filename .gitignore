@@ -18,6 +18,7 @@ package-lock.json
 pnpmfile.js
 pnpm-lock.yaml
 .pnpmfile.cjs
+.npmrc
 tsconfig.json
 types.d.ts
 vite.config.ts

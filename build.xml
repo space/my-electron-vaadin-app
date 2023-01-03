@@ -27,6 +27,7 @@
         <delete file="./pnpmfile.js" />
         <delete file="./.pnpmfile.cjs" />
         <delete file="./pnpm-lock.yaml" />
+        <delete file="./.npmrc" />
         <delete file="./tsconfig.json" />
         <delete file="./types.d.ts" />
         <delete file="./vite.config.ts" />
