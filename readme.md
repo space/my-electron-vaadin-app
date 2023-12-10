@@ -31,6 +31,6 @@ and the list of available task will be printed:
 
 so to create the final Electron bundle (for Win, Mac and Linux):
 
-    ant package.electon
+    ant package.electron
 
 than take a coffee (first full build take 10 min on my machine...)
