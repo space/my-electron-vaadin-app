@@ -1,12 +1,11 @@
 package com.example.application.views;
 
-import com.example.application.components.appnav.AppNav;
-import com.example.application.components.appnav.AppNavItem;
-import com.example.application.data.entity.User;
+import com.example.application.data.User;
 import com.example.application.security.AuthenticatedUser;
 import com.example.application.views.about.AboutView;
-import com.example.application.views.helloadmin.HelloAdminView;
-import com.example.application.views.hellouser.HelloUserView;
+import com.example.application.views.admin.AdminView;
+import com.example.application.views.helloworld.HelloWorldView;
+import com.example.application.views.user.UserView;
 import com.vaadin.flow.component.applayout.AppLayout;
 import com.vaadin.flow.component.applayout.DrawerToggle;
 import com.vaadin.flow.component.avatar.Avatar;
@@ -20,12 +19,15 @@ import com.vaadin.flow.component.html.Header;
 import com.vaadin.flow.component.icon.Icon;
 import com.vaadin.flow.component.menubar.MenuBar;
 import com.vaadin.flow.component.orderedlayout.Scroller;
+import com.vaadin.flow.component.sidenav.SideNav;
+import com.vaadin.flow.component.sidenav.SideNavItem;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.server.StreamResource;
 import com.vaadin.flow.server.auth.AccessAnnotationChecker;
 import com.vaadin.flow.theme.lumo.LumoUtility;
 import java.io.ByteArrayInputStream;
 import java.util.Optional;
+import org.vaadin.lineawesome.LineAwesomeIcon;
 
 /**
  * The main view is a top-level placeholder for other views.
@@ -48,7 +50,7 @@ public class MainLayout extends AppLayout {
 
     private void addHeaderContent() {
         DrawerToggle toggle = new DrawerToggle();
-        toggle.getElement().setAttribute("aria-label", "Menu toggle");
+        toggle.setAriaLabel("Menu toggle");
 
         viewTitle = new H2();
         viewTitle.addClassNames(LumoUtility.FontSize.LARGE, LumoUtility.Margin.NONE);
@@ -66,21 +68,23 @@ public class MainLayout extends AppLayout {
         addToDrawer(header, scroller, createFooter());
     }
 
-    private AppNav createNavigation() {
-        // AppNav is not yet an official component.
-        // For documentation, visit https://github.com/vaadin/vcf-nav#readme
-        AppNav nav = new AppNav();
+    private SideNav createNavigation() {
+        SideNav nav = new SideNav();
 
-        if (accessChecker.hasAccess(HelloUserView.class)) {
-            nav.addItem(new AppNavItem("Hello User", HelloUserView.class, "la la-globe"));
+        if (accessChecker.hasAccess(HelloWorldView.class)) {
+            nav.addItem(new SideNavItem("Hello World", HelloWorldView.class, LineAwesomeIcon.GLOBE_SOLID.create()));
 
         }
-        if (accessChecker.hasAccess(HelloAdminView.class)) {
-            nav.addItem(new AppNavItem("Hello Admin", HelloAdminView.class, "la la-globe"));
+        if (accessChecker.hasAccess(AdminView.class)) {
+            nav.addItem(new SideNavItem("Admin", AdminView.class, LineAwesomeIcon.PENCIL_RULER_SOLID.create()));
+
+        }
+        if (accessChecker.hasAccess(UserView.class)) {
+            nav.addItem(new SideNavItem("User", UserView.class, LineAwesomeIcon.PENCIL_RULER_SOLID.create()));
 
         }
         if (accessChecker.hasAccess(AboutView.class)) {
-            nav.addItem(new AppNavItem("About", AboutView.class, "la la-file"));
+            nav.addItem(new SideNavItem("About", AboutView.class, LineAwesomeIcon.FILE.create()));
 
         }
 

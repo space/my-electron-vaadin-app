@@ -1,4 +1,5 @@
 const { app, BrowserWindow, dialog } = require('electron');
+
 const getPort = require('get-port');
 const decompress = require('decompress');
 const child_process = require('child_process');
@@ -10,7 +11,7 @@ let mainWindow = null;
 let loading = null;
 let serverProcess = null;
 let allowClose = false;
-const jreFolder = 'jdk-19.0.1+10-jre';
+const jreFolder = 'jdk-21.0.1+12-jre';
 
 function error_log(exception) {
     fs.appendFile('error.log', exception.stack + "\n", (err) => {
@@ -85,7 +86,7 @@ try {
             }
         }
         if (!filename) {
-            throw new Error("There is no JAR file in ./java/ !");
+            throw new Error("There is no JAR file in: " + app.getAppPath() + "/java/ !!");
         }
         return filename;
     };

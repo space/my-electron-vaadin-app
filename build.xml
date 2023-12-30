@@ -22,22 +22,10 @@
         <delete dir="./target" />
         <delete dir="./frontend/generated" />
 
-        <echo message="Clean generated files" />
-        <delete file="./package-lock.json" />
-        <delete file="./pnpmfile.js" />
-        <delete file="./.pnpmfile.cjs" />
-        <delete file="./pnpm-lock.yaml" />
-        <delete file="./.npmrc" />
-        <delete file="./tsconfig.json" />
-        <delete file="./types.d.ts" />
-        <delete file="./vite.config.ts" />
-        <delete file="./vite.generated.ts" />
-
     </target>
 
     <target name="clean" description="Clean all not essential elements using maven">
-        <fail unless="env.MAVEN_HOME"
-            message="Environment variable MAVEN_HOME was not found on your system!" />
+        <fail unless="env.MAVEN_HOME" message="Environment variable MAVEN_HOME was not found on your system!" />
         <exec executable="${env.MAVEN_HOME}\bin\mvn.cmd">
             <arg value="clean" />
         </exec>

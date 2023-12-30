@@ -1,11 +1,11 @@
-package com.example.application.data.entity;
+package com.example.application.data;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.MappedSuperclass;
-import javax.persistence.SequenceGenerator;
-import javax.persistence.Version;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.MappedSuperclass;
+import jakarta.persistence.SequenceGenerator;
+import jakarta.persistence.Version;
 
 @MappedSuperclass
 public abstract class AbstractEntity {
@@ -41,14 +41,12 @@ public abstract class AbstractEntity {
 
     @Override
     public boolean equals(Object obj) {
-        if (!(obj instanceof AbstractEntity)) {
-            return false; // null or other class
+        if (!(obj instanceof AbstractEntity that)) {
+            return false; // null or not an AbstractEntity class
         }
-        AbstractEntity other = (AbstractEntity) obj;
-
         if (getId() != null) {
-            return getId().equals(other.getId());
+            return getId().equals(that.getId());
         }
-        return super.equals(other);
+        return super.equals(that);
     }
 }
